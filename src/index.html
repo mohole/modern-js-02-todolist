@@ -6,23 +6,27 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="stylesheet"
-    href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet"
-    href="./bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 
   <style>
-    body{
-      margin: 50px 0;
-    }
-    input{
-      margin-top: 10px;
-    }
-    li{
-      font-size: 18px;
-      margin: 10px 0;
-    }
-  </style>
+        #todolist{
+            margin-top: 20px;
+        }
+        .todo-item{
+            background-color: #f3f3f3;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            margin-bottom: 7px;
+        }
+        .delete-item{
+            margin-right: 15px;
+            color: inherit;
+        }
+        .delete-item:hover{
+            color: red;
+        }
+    </style>
 
 </head>
 <body>
@@ -30,34 +34,28 @@
   <!-- Main container -->
   <div class="container">
     <h1>To Do List App</h1>
-
-    <form>
-      <input type="text" class="form-control"
-        placeholder="type something and press enter...">
-    </form>
-
-    <hr>
-
-    <ul>
-      <!-- qui gli elementi renderizzati -->
-    </ul>
-
+    <div class="row">
+        <form action="#" id="add-form" method="post">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Scrivi qui la tua note..." id="notetxt">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="submit" id="addnote">Add</button>
+              </span>
+            </div>
+        </form>
+    </div>
+    <div class="row" id="todolist">
+        
+    </div>
   </div>
 
 
-  <!-- Template elemento -->
-  <template>
-
-  <li>
-    {{item}}
-    <button
-      data-index="{{index}}"
-      class="btn btn-danger btn-sm"
-      onclick="removeItem(event)">
-        <span class="fa fa-trash-o"></span>
-    </button>
-  </li>
-
+  <!-- Item template -->
+  <template id="item-tmpl">
+    <div class="col-xs-12 todo-item" data-id="{{id}}">
+        <a href="#" class="delete-item" onclick="deleteItem(event)"><i class="fa fa-trash"></i></a>
+        <span>{{txt}}</span>
+    </div>
   </template>
 
   <!-- App script -->
