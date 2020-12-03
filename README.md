@@ -1,45 +1,48 @@
-# MODERN JS - 02 - ToDo List
+# Javscript 02 - litHTML ToDo app
 
-Progetto To Do List
+## frontend-starter-kit
+> Simple starter kit boilerplate based on Webpack, SASS and Bootstrap 5 (alpha)
 
-### 0. Software necessario
-* [Google Chrome](https://www.google.it/chrome/browser/desktop/)
-* [Git](https://git-scm.com/)
-* [NodeJS](https://nodejs.org/en/)
-  * [Bower](http://bower.io/) ```$ npm install -g bower```
-  * [Http-Server](https://www.npmjs.com/package/http-server) ```$ npm install -g http-server```
-* Editor di codice ([Atom](https://atom.io/) è una valida opzione!)
-* Account GitHub +  [Client](https://desktop.github.com/)
+## How to use
+Just clone the project in a new folder:
+```bash
+git clone https://github.com/mohole/frontend-starter-kit my-new-project
+```
 
-### 1. Prerequisiti
-* Corso [Modern JS 02](https://github.com/mohole/modern-js-02) - lezione 1
+install dependencies
+```bash
+cd my-new-project
+npm install 
+# or "npm i" as shortcut...
+```
 
-### 2. Installazione
-* Clonare questo repository sul proprio PC
-* Aprire il terminale (Mac OS/Linux) o il prompt dei comandi (Windows)
-* Spostarsi nell cartella principale del repo scaricato
-* Installare le dipendenze con il comando ```npm install && bower install```.
-* Utilizzare il comando ```npm start``` per avviare il webserver
+and get started:
+```bash
+npm start
+```
 
-### 3. Licenza
-MIT License
+This will start a `webpack-dev-server` instance in `hot-reload` mode (*this will automatically update your browser when you apply any changes to the source files*), your project will be exposed at `localhost:8080`.
 
-Copyright (c) 2016 Mohole Snc
+To create the optimized files to publish to whaterver static hosting you choose, just run:
+```bash
+npm run build
+```
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+the result will be available in the `./dist` folder.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## Customizzazioni
+Per cambiare il titolo delle notifiche e della pagina, modificare il campo `displayName` nel file `package.json`:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+```json
+ "displayName": "Mohole frontend starter kit",
+```
+
+per modificare la porta su cui avviare il dev-server di Webpack e la cartella in cui generare i file pubblicabili, basta modificare le relative costanti nel file `webpack.config.js`:
+
+```javascript
+const dist = './dist';
+const port = 8080;
+```
+
+## License
+Release under the [MIT license](LICENSE).
